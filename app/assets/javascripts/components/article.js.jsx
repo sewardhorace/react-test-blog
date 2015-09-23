@@ -1,17 +1,19 @@
 var Article = React.createClass({
-  propTypes: {
-    title: React.PropTypes.string,
-    body: React.PropTypes.string,
+
+  getInitialState: function() {
+    return { edit: false };
   },
 
-
+  articleRow: function() {
+    return(
+      <tr>
+        <td>{this.props.article.title}</td>
+        <td>{this.props.article.text}</td>
+      </tr>
+    );
+  },
 
   render: function() {
-    return (
-      <div>
-        <h4>Title: {this.props.title}</h4>
-        <p>Stuff: {this.props.body}</p>
-      </div>
-    );
+    return this.articleRow();
   }
 });

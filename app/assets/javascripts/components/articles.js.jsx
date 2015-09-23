@@ -7,22 +7,21 @@ var Articles = React.createClass({
     return { articles: [] };
   },
 
-  propTypes: {
-    title: React.PropTypes.string,
-    body: React.PropTypes.string,
-  },
-
   render: function() {
-    return (
-      <div>
-        <h4>RENDERTEST</h4>
-      </div>
-      {this.state.articles.map(function(article) {
-        return <Article key={article.id} article={article}
-        // handleDeleteArticle={this.deleteArticle}
-        // handleEditArticle={this.updateArticle}
-        />
-        }.bind(this))}
+    return(
+      <table>
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Content</th>
+          </tr>
+        </thead>
+        <tbody>
+          {this.state.articles.map(function(article) {
+            return <Article key={article.id} article={article}/>
+           }.bind(this))}
+        </tbody>
+      </table>
     );
   }
 });
