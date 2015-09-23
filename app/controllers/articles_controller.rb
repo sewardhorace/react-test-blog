@@ -5,6 +5,7 @@ class ArticlesController < ApplicationController
 
   def show
     @article = Article.find(params[:id])
+    render component: 'Article', props: { title: @article.title, body: @article.text }
   end
 
   def new

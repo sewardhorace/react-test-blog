@@ -1,12 +1,5 @@
-<p>
-  <strong>Stuff Called:</strong>
-  <%= @article.title %>
-</p>
 
-<p>
-  <strong>Here is the stuff:</strong>
-  <%= @article.text %>
-</p>
+<%= react_component('Article', {title: @article.title, body: @article.text}) %>
 
 <h2>Comments</h2>
 <%= render @article.comments %>
@@ -16,3 +9,9 @@
 
 <%= link_to 'Edit the Stuff?', edit_article_path(@article) %>
 <%= link_to 'Back to All Stuff', articles_path %>
+
+<br>
+
+
+<br>
+<%= render 'form' %>
