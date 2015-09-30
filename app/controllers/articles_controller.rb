@@ -5,7 +5,6 @@ class ArticlesController < ApplicationController
 
   def show
     @article = Article.find(params[:id])
-    render component: 'Article', props: { title: @article.title, body: @article.text }
   end
 
   def new
@@ -20,9 +19,9 @@ class ArticlesController < ApplicationController
     @article = Article.new(article_params)
 
     if @article.save
-      redirect_to @article
+      render json: @article
     else
-      render 'new'
+      render json: @article.errors, status: :unprocessable_entity
     end
   end
 

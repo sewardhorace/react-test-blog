@@ -7,6 +7,11 @@ var Articles = React.createClass({
     return { articles: [] };
   },
 
+  addRecord: function(article) {
+    var articles = React.addons.update(this.state.articles, { $push: [article] })
+    this.setState({ articles: articles });
+  },
+
   render: function() {
     return(
       <table>
